@@ -1,0 +1,60 @@
+# Memory Ablation Experiment Configuration
+# Tests impact of memory systems on agent performance
+
+experiment:
+  name: ablation_memory
+  seed: 42
+  num_runs: 5
+  output_dir: results/ablation_memory
+
+llm:
+  provider: ollama
+  model: llama3.1:8b
+  base_url: http://localhost:11434
+  temperature: 0.1
+
+# Ablation conditions
+conditions:
+  - name: no_memory
+    memory:
+      enable: false
+
+  - name: buffer_only
+    memory:
+      enable: true
+      type: buffer
+      max_items: 100
+      enable_reflection: false
+
+  - name: buffer_with_reflection
+    memory:
+      enable: true
+      type: buffer
+      max_items: 100
+      enable_reflection: true
+
+  - name: vector_memory
+    memory:
+      enable: true
+      type: vector
+      max_items: 500
+      enable_reflection: false
+
+  - name: full_memory
+    memory:
+      enable: true
+      type: hybrid
+      max_items: 500
+      enable_reflection: true
+
+# Fixed settings
+planning:
+  type: hybrid
+  max_steps: 10
+
+evaluation:
+  window_size: 50
+  bootstrap_samples: 1000
+
+benchmarks:
+  - toy_webarena

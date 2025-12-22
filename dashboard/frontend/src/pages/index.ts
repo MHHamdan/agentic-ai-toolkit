@@ -1,0 +1,6 @@
+export { default as Dashboard } from './Dashboard'
+export { default as Evaluations } from './Evaluations'
+export { default as CostAnalysis } from './CostAnalysis'
+export { default as Incidents } from './Incidents'
+export { default as Safety } from './Safety'
+export { default as Settings } from './Settings'

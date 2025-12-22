@@ -1,0 +1,152 @@
+# Model Configuration for Agentic AI Toolkit
+# Lists available Ollama models and their characteristics
+
+# Primary models for experiments
+models:
+  # Baseline model - good balance of capability and speed
+  baseline:
+    name: llama3.1:8b
+    provider: ollama
+    description: Primary baseline model - Llama 3.1 8B
+    context_length: 8192
+    capabilities:
+      - reasoning
+      - coding
+      - general
+    recommended_for:
+      - general_tasks
+      - baseline_benchmarks
+
+  # Reasoning model - best for complex tasks
+  reasoning:
+    name: qwen2.5:14b
+    provider: ollama
+    description: Enhanced reasoning - Qwen 2.5 14B
+    context_length: 32768
+    capabilities:
+      - advanced_reasoning
+      - coding
+      - math
+    recommended_for:
+      - complex_planning
+      - multi_step_reasoning
+
+  # Fast model - for simple tasks
+  fast:
+    name: llama3.2:3b
+    provider: ollama
+    description: Fast inference - Llama 3.2 3B
+    context_length: 8192
+    capabilities:
+      - general
+      - simple_tasks
+    recommended_for:
+      - simple_queries
+      - high_throughput
+
+  # General purpose alternative
+  general:
+    name: mistral:latest
+    provider: ollama
+    description: General purpose - Mistral 7B
+    context_length: 8192
+    capabilities:
+      - general
+      - coding
+    recommended_for:
+      - general_tasks
+      - code_generation
+
+  # Small but capable
+  small:
+    name: phi3:latest
+    provider: ollama
+    description: Compact model - Phi-3
+    context_length: 4096
+    capabilities:
+      - general
+      - reasoning
+    recommended_for:
+      - resource_constrained
+      - quick_inference
+
+  # Another small option
+  gemma:
+    name: gemma2:2b
+    provider: ollama
+    description: Efficient small model - Gemma 2 2B
+    context_length: 8192
+    capabilities:
+      - general
+    recommended_for:
+      - lightweight_tasks
+
+  # Multimodal
+  vision:
+    name: llava:7b
+    provider: ollama
+    description: Vision-language model - LLaVA 7B
+    context_length: 4096
+    capabilities:
+      - vision
+      - image_understanding
+    recommended_for:
+      - image_tasks
+      - multimodal
+
+# Embedding models
+embeddings:
+  default:
+    name: nomic-embed-text:latest
+    provider: ollama
+    description: Text embeddings - Nomic Embed
+    dimensions: 768
+
+  large:
+    name: mxbai-embed-large:latest
+    provider: ollama
+    description: Large embeddings - MxBai
+    dimensions: 1024
+
+# Model comparison groups for experiments
+experiment_groups:
+  size_comparison:
+    - llama3.2:3b      # 3B params
+    - llama3.1:8b      # 8B params
+    - qwen2.5:14b      # 14B params
+    description: Compare performance across model sizes
+
+  family_comparison:
+    - llama3.1:8b
+    - mistral:latest
+    - phi3:latest
+    description: Compare different model families
+
+  all_models:
+    - llama3.2:3b
+    - llama3.1:8b
+    - qwen2.5:14b
+    - mistral:latest
+    - phi3:latest
+    - gemma2:2b
+    description: Full comparison across all available models
+
+# Optional API models (require API keys)
+optional_api_models:
+  gpt4o_mini:
+    name: gpt-4o-mini
+    provider: openai
+    description: OpenAI GPT-4o Mini (requires API key)
+    api_key_env: OPENAI_API_KEY
+    pricing:
+      input_per_1k: 0.00015
+      output_per_1k: 0.0006
+
+  gpt4o:
+    name: gpt-4o
+    provider: openai
+    description: OpenAI GPT-4o (requires API key)
+    api_key_env: OPENAI_API_KEY
+    pricing:
+      input_per_1k: 0.005
+      output_per_1k: 0.015

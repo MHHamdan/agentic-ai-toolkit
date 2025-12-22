@@ -1,0 +1,46 @@
+# Model Comparison Experiment Configuration
+# Compares performance across different Ollama models
+
+experiment:
+  name: model_comparison
+  seed: 42
+  num_runs: 5
+  output_dir: results/model_comparison
+
+# Models to compare
+models:
+  - llama3.2:3b
+  - llama3.1:8b
+  - qwen2.5:14b
+  - mistral:latest
+  - phi3:latest
+
+# LLM settings (applied per model)
+llm:
+  provider: ollama
+  base_url: http://localhost:11434
+  temperature: 0.1
+  max_tokens: 4096
+
+# Fixed settings across models
+planning:
+  type: hybrid
+  max_steps: 10
+
+evaluation:
+  window_size: 50
+  bootstrap_samples: 1000
+
+# Benchmarks to run
+benchmarks:
+  - toy_webarena
+  - toy_swebench
+  - toy_agentbench
+
+# Metrics to collect
+metrics:
+  - success_rate
+  - cnsr
+  - latency
+  - tokens_used
+  - drift_score

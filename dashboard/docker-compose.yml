@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agentic-dashboard-backend
+    network_mode: host
+    environment:
+      - OLLAMA_HOST=${OLLAMA_HOST:-127.0.0.1}
+      - OLLAMA_PORT=${OLLAMA_PORT:-11434}
+      - API_TITLE=Agentic AI Toolkit Dashboard API
+      - API_VERSION=1.0.0
+    volumes:
+      - ./backend/app:/app/app:ro
+      - ../src:/app/toolkit_src:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agentic-dashboard-frontend
+    ports:
+      - "7000:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,0 +1,81 @@
+# Default Configuration for Agentic AI Toolkit
+# All experiments use Ollama as the default LLM backend
+
+experiment:
+  name: default
+  seed: 42
+  num_runs: 5
+  output_dir: results
+
+# LLM Configuration - Ollama is default (no API key required)
+llm:
+  provider: ollama
+  model: llama3.1:8b
+  base_url: http://localhost:11434
+  temperature: 0.1
+  max_tokens: 4096
+  top_p: 0.9
+  timeout: 120  # seconds
+
+# Planning Configuration
+planning:
+  type: hybrid  # deliberative, reactive, hybrid, htn_lite
+  max_steps: 10
+  replan_threshold: 0.3
+  enable_verification: true
+  risk_threshold: 0.7
+
+# Verification Configuration
+verification:
+  enable_constraints: true
+  enable_simulation: true
+  dry_run_tools: true
+  budget_limit: 100.0  # USD equivalent (0 for Ollama)
+  approval_threshold: 0.8
+
+# Memory Configuration
+memory:
+  enable: true
+  type: buffer  # buffer, vector, hybrid
+  max_items: 100
+  enable_reflection: true
+
+# Skills Configuration
+skills:
+  enable: true
+  trust_decay: 0.1
+  min_trust: 0.1
+  selection_strategy: balanced  # relevance, trust, cost, balanced
+
+# Security Configuration
+security:
+  enable_sandbox: true
+  enable_audit: true
+  policy_file: null  # Path to policy file if custom
+  allowlist: []  # Empty = allow all
+  blocklist:
+    - rm -rf
+    - sudo
+    - chmod 777
+
+# Evaluation Configuration
+evaluation:
+  window_size: 50
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  track_drift: true
+  track_incidents: true
+
+# Logging Configuration
+logging:
+  level: INFO
+  format: jsonl
+  output_dir: logs
+  buffer_size: 100
+
+# Multi-Agent Configuration
+multi_agent:
+  coordination: supervisor  # sequential, supervisor, swarm
+  arbitration: weighted_vote  # majority, weighted_vote, supervisor_override
+  max_iterations: 10
+  conflict_resolution: utility  # priority, utility, consensus
