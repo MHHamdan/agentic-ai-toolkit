@@ -1,6 +1,6 @@
 # Contributing to Agentic AI Toolkit
 
-Thank you for your interest in contributing! This document provides guidelines for contributing to the Agentic AI Toolkit.
+Thank you for your interest in contributing! This provides guidelines for contributing to the Agentic AI Toolkit.
 
 ## Getting Started
 
