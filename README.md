@@ -4,7 +4,8 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 A comprehensive Python toolkit for building production-ready agentic AI systems. Features modular components for agent architectures, memory systems, tool integration, multi-agent coordination, and evaluation.
-<img width="1800" height="1300" alt="system_architecture_v2" src="https://github.com/user-attachments/assets/c12d9124-b914-40f8-81fd-481cdffde0b5" />
+
+<img width="760" height="1040" alt="stack_v2" src="https://github.com/user-attachments/assets/829695dd-5afd-4412-8d81-162c2c12812b" />
 
 
 ## Features
@@ -280,105 +281,7 @@ config = Config(
 ## Architecture
 
 ### System Overview
-
-```mermaid
-graph TB
-    subgraph External["External Services"]
-        Ollama[(Ollama<br/>Local LLM)]
-        OpenAI[(OpenAI API)]
-        ChromaDB[(ChromaDB<br/>Vector Store)]
-        ExtTools[External Tools]
-    end
-
-    subgraph Agents["Agent Layer"]
-        ReAct[ReActAgent]
-        CoT[CoTAgent]
-        Custom[CustomAgent]
-        Supervisor[SupervisorAgent]
-        Pipeline[SequentialPipeline]
-    end
-
-    subgraph Core["Core Layer"]
-        LLM[LLMClient]
-        Base[BaseAgent]
-        Config[Config]
-        Cost[CostTracker]
-    end
-
-    subgraph Memory["Memory Layer"]
-        Buffer[BufferMemory<br/>Working Memory]
-        Vector[VectorMemory<br/>Semantic Memory]
-        Episodic[EpisodicMemory]
-    end
-
-    subgraph Tools["Tools Layer"]
-        Registry[ToolRegistry]
-        Sandbox[Sandbox]
-        Permissions[PermissionManager]
-        Audit[AuditLogger]
-    end
-
-    subgraph Planning["Planning Layer"]
-        Reactive[ReactivePlanner]
-        Deliberative[DeliberativePlanner]
-        Hybrid[HybridPlanner]
-        HTN[HTNPlanner]
-    end
-
-    subgraph Verification["Verification Layer"]
-        Validator[PlanValidator]
-        Policy[PolicyEngine]
-        Guarded[GuardedExecutor]
-    end
-
-    subgraph Protocols["Protocols Layer"]
-        MCP[MCP Client/Server]
-        A2A[A2A Client]
-        CapAuth[CapabilityAuth]
-    end
-
-    subgraph Evaluation["Evaluation Layer"]
-        CNSR[CNSR Metric]
-        LongHorizon[LongHorizonEvaluator]
-        Incidents[IncidentTracker]
-        Drift[GoalDriftScore]
-    end
-
-    %% Relationships
-    ReAct --> Base
-    CoT --> Base
-    Custom --> Base
-    Supervisor --> Base
-    Pipeline --> Base
-
-    Base --> LLM
-    Base --> Buffer
-    Base --> Registry
-
-    LLM --> Ollama
-    LLM --> OpenAI
-
-    Vector --> ChromaDB
-    Episodic --> ChromaDB
-
-    Registry --> Sandbox
-    Registry --> Permissions
-    Sandbox --> ExtTools
-
-    Reactive --> Validator
-    Deliberative --> Validator
-    Hybrid --> Validator
-
-    Validator --> Policy
-    Guarded --> Policy
-
-    MCP --> ExtTools
-    A2A --> CapAuth
-
-    CNSR --> Cost
-    LongHorizon --> Incidents
-```
-
+<img width="1800" height="1300" alt="system_architecture_v2" src="https://github.com/user-attachments/assets/c12d9124-b914-40f8-81fd-481cdffde0b5" />
 ### Component Architecture
 
 <img width="1360" height="960" alt="class_diagram (1)" src="https://github.com/user-attachments/assets/c32f3dfe-f6a4-4426-bdc4-147f19eb9390" />
