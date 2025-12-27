@@ -386,18 +386,8 @@ graph TB
 
 ### Control Loop
 
-```mermaid
-stateDiagram-v2
-    [*] --> Perceive: User Query
-    Perceive --> Think: Environment State
-    Think --> Plan: Reasoning
-    Plan --> Verify: Proposed Actions
-    Verify --> Act: Validated Plan
-    Verify --> Think: Rejected (Replan)
-    Act --> Observe: Tool Execution
-    Observe --> Think: Feedback Loop
-    Observe --> [*]: Task Complete
-```
+<img width="309" height="838" alt="agent_cycle" src="https://github.com/user-attachments/assets/378ee650-3b4b-457c-bc3b-9c2d734a54ed" />
+
 
 ### ReAct Loop
 
