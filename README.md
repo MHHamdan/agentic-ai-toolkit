@@ -4,7 +4,8 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 A comprehensive Python toolkit for building production-ready agentic AI systems. Features modular components for agent architectures, memory systems, tool integration, multi-agent coordination, and evaluation.
-<img width="2090" height="966" alt="System_archictecture (1)" src="https://github.com/user-attachments/assets/c6960d1d-d4ab-4954-8664-3b747187ea54" />
+<img width="1800" height="1300" alt="system_architecture_v2" src="https://github.com/user-attachments/assets/c12d9124-b914-40f8-81fd-481cdffde0b5" />
+
 
 ## Features
 
