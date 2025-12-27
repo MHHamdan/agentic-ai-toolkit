@@ -479,6 +479,22 @@ from .autonomy_benchmarks import (
     TASKS_BY_CRITERION,
     get_autonomy_benchmark_statistics,
 )
+from .cnsr_benchmark import (
+    CNSRBenchmark,
+    BenchmarkConfig as CNSRBenchmarkConfig,
+    AgentEvaluationResult,
+    CNSRResults,
+    ParetoAnalysis,
+    ParetoPoint,
+    DivergenceReport,
+    RankingDivergence,
+    RankingMethod,
+    SensitivityReport,
+    SensitivityResult,
+    MODEL_COST_RATES,
+    create_cnsr_benchmark,
+    quick_cnsr_comparison,
+)
 
 __all__ = [
     # Base metrics
@@ -559,4 +575,19 @@ __all__ = [
     "ALL_AUTONOMY_TASKS",
     "TASKS_BY_CRITERION",
     "get_autonomy_benchmark_statistics",
+    # CNSR Benchmark (Section XI-C-3)
+    "CNSRBenchmark",
+    "CNSRBenchmarkConfig",
+    "AgentEvaluationResult",
+    "CNSRResults",
+    "ParetoAnalysis",
+    "ParetoPoint",
+    "DivergenceReport",
+    "RankingDivergence",
+    "RankingMethod",
+    "SensitivityReport",
+    "SensitivityResult",
+    "MODEL_COST_RATES",
+    "create_cnsr_benchmark",
+    "quick_cnsr_comparison",
 ]
