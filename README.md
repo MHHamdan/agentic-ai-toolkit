@@ -381,63 +381,8 @@ graph TB
 
 ### Component Architecture
 
-```mermaid
-classDiagram
-    class BaseAgent {
-        +name: str
-        +llm: LLMClient
-        +memory: BaseMemory
-        +tools: List~Tool~
-        +run(query: str) str
-        +step() AgentAction
-    }
+<img width="1360" height="960" alt="class_diagram (1)" src="https://github.com/user-attachments/assets/c32f3dfe-f6a4-4426-bdc4-147f19eb9390" />
 
-    class LLMClient {
-        +model: str
-        +temperature: float
-        +invoke(messages) Response
-        +stream(messages) Iterator
-    }
-
-    class BufferMemory {
-        +max_items: int
-        +add_message(msg)
-        +get_messages() List
-        +clear()
-    }
-
-    class VectorMemory {
-        +embedding_model: str
-        +add(text: str)
-        +get(query: str, k: int) List
-        +delete(id: str)
-    }
-
-    class ToolRegistry {
-        +tools: Dict
-        +register(tool: Tool)
-        +get(name: str) Tool
-        +execute(name, params) Result
-    }
-
-    class PolicyEngine {
-        +rules: List~PolicyRule~
-        +add_rule(rule)
-        +evaluate(context) Decision
-    }
-
-    class PlanValidator {
-        +validate(plan) ValidationResult
-        +check_constraints(step) bool
-    }
-
-    BaseAgent --> LLMClient
-    BaseAgent --> BufferMemory
-    BaseAgent --> VectorMemory
-    BaseAgent --> ToolRegistry
-    ToolRegistry --> PolicyEngine
-    PlanValidator --> PolicyEngine
-```
 
 ### Control Loop
 
