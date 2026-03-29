@@ -7,7 +7,7 @@
 
 A comprehensive Python toolkit for building production-ready agentic AI systems. Features modular components for agent architectures, memory systems, tool integration, multi-agent coordination, evaluation, and a full suite of reproducible research experiments aligned with the paper *"Towards Autonomous Intelligence: A Survey of Agentic AI Systems"* (TAI-2025-Dec-R-02684).
 
-<<<<<<< HEAD
+## HEAD
 A comprehensive Python toolkit for building production-ready agentic AI systems. Features modular components for agent architectures, memory systems, tool integration, multi-agent coordination, and evaluation.
 
 <img width="760" height="1040" alt="stack_v2" src="https://github.com/user-attachments/assets/829695dd-5afd-4412-8d81-162c2c12812b" />
